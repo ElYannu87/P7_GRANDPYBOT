@@ -1,0 +1,5 @@
+/gpbapp/__pycache__
+/gpbapp/utils/__pycache__
+.idea
+.DS_Store
+/venv

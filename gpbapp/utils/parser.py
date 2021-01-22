@@ -4,9 +4,10 @@ import re
 import io
 
 
+json_file = 'gpbapp/utils/stop_words_fr.json'
+
 class Parser:
     #Get the stopWords json into a list
-    json_file = 'gpbapp/utils/stop_words_fr.json'
     @staticmethod
     def get_stopwords_list():
         """ Get the stop words list for parser """
@@ -23,8 +24,8 @@ class Parser:
     def get_address(user_question):
         """ Parse the user question to extract the adress """
         output_address = []
-        list_sentence = split_user_question(user_question)
-        dict_list = set(get_stopwords_list())
+        list_sentence = Parser.split_user_question(user_question)
+        dict_list = set(Parser.get_stopwords_list())
         output_address = ' '.join(
             [word for word in list_sentence if word not in dict_list]).strip(' ')
         return output_address
