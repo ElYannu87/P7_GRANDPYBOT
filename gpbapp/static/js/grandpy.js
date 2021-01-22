@@ -7,11 +7,10 @@ var result = document.getElementById("result");
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
-        center: { lat: 47.2172500, lng: -1.5533600 }
+        center: { lat: 48.856614, lng: 2.3522219 }
     });
 
-    document.getElementById('submit').addEventListener('click' ,  function (e) {
-        e.preventDefault();
+    document.getElementById('submit').addEventListener('click', function () {
         var userQuestion = document.getElementById('userQuestion').value;
         requestQuestionMap( map, userQuestion);
     });
@@ -25,8 +24,8 @@ function requestQuestionMap(map, userQuestion) {
     reqQuestion.onreadystatechange = function () {
         if (reqQuestion.readyState == 4 && (reqQuestion.status >= 200 || reqQuestion.status == 0)) {
             var readData = JSON.parse(reqQuestion.responseText);
-
-
+            
+            
             // Show the map
             var location = new google.maps.LatLng(readData.lat, readData.lng);
             map.setCenter(location);
@@ -46,5 +45,5 @@ function requestQuestionMap(map, userQuestion) {
         }
         result.style.display = "inline";
     };
-    reqQuestion.sen//d(null);
+    reqQuestion.send(null);
 }

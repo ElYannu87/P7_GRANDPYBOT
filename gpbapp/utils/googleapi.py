@@ -7,9 +7,9 @@ url = "https://maps.googleapis.com/maps/api/geocode/json"
 class GoogleApi:
 
     @staticmethod
-    def geocode_request(userAddress):
+    def geocode_request(user_address):
         """ Request the Google Geocode API pour lat/lng position """
-        payload = {'address': userAddress, 'key': config.GOOGLE_APP_ID}
+        payload = {'address': user_address, 'key': config.GOOGLE_APP_ID}
         req = requests.get(url, params=payload)
         if req.status_code == 200:
             if req:

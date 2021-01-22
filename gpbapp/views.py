@@ -1,11 +1,11 @@
 import json
 import random
 
-import requests
-from flask import Flask, render_template, request
-from .utils.parser import Parser
+from flask import Flask, render_template
+from .utils.parser import get_address
 from .utils.googleapi import GoogleApi
-from .utils.wikiapi import WikiApi
+from .utils.wikiapi import req_wikimedia
+from .utils.wikiapi import req_story
 
 app = Flask(__name__)
 
@@ -22,31 +22,31 @@ def index():
 @app.route('/question/<sentence>')
 def question(sentence):
     """Get the user question, parse it and show the address on map"""
-    parserQuestion = Parser.get_address(sentence)
+    parser_question = get_address(sentence)
 
     # Get location for Google Map API marker
-    geoLat, geoLng = GoogleApi.geocode_request(parserQuestion)
+    geo_lat, geo_lng = GoogleApi.geocode_request(parser_question)
 
     # Get random story & title for Wiki Media API
-    wikiLocation = str(geoLat) + "|" + str(geoLng)
-    wikiRequest = WikiApi.req_wikimedia(wikiLocation)
-    lenResult = len(wikiRequest['query']['geosearch'])
-    if lenResult >= 1:
-        ranStory = random.randrange(lenResult)
-        story = WikiApi.req_story(wikiRequest, ranStory)
+    wiki_location = str(geo_lat) + "|" + str(geo_lng)
+    wiki_request = req_wikimedia(wiki_location)
+    len_result = len(wiki_request['query']['geosearch'])
+    if len_result >= 1:
+        ran_story = random.randrange(len_result)
+        story = req_story(wiki_request, ran_story)
     else:
         story = "Je ne me rapelle de rien concernant ce lieux..."
         title = ""
 
     # Build the Json result to return
     data = {}
-    data['lat'] = geoLat
-    data['lng'] = geoLng
-    if lenResult >= 1:
+    data['lat'] = geo_lat
+    data['lng'] = geo_lng
+    if len_result >= 1:
         data['title'] = story[0]['title']
         data['story'] = story[0]['extract']
     else:
         data['title'] = title
         data['story'] = story
-    jsonData = json.dumps(data, ensure_ascii=False, indent=4)
-    return jsonData
+    json_data = json.dumps(data, ensure_ascii=False, indent=4)
+    return json_data
