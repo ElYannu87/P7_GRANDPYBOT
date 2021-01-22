@@ -1,0 +1,158 @@
+#map {
+    height: 300px;
+    width: 60%;
+    margin: auto;
+    border-radius: 10px 10px 10px 10px;
+}
+
+body {
+    text-align: center;
+    background-color: lightgray;
+}
+
+#userQuestion, #submit {
+    box-shadow: 6px 6px 20px black;
+    border-radius: 10px 5px 10px 5px;
+    padding: 5px;
+}
+
+h1 {
+    margin-top: 15px;
+    font-size: 4.9em;
+}
+
+#secondTitle {
+    font-size: 2.5em;
+    margin-bottom: 5%;
+}
+
+form {
+    margin-bottom: 40px; 
+}
+
+#submit {
+    margin-left: 15px;
+    background-color: lightslategray;
+    border-color: white;
+    font-weight: bold;
+}
+
+#userQuestion {
+    width: 400px;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    /* Firefox */
+    -webkit-animation: fadein 2s;
+    /* Safari et Chrome */
+    -o-animation: fadein 2s;
+    /* Opera */
+}
+
+#content {
+    flex-grow: 1;
+}
+
+.text {
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10px 10px 10px 10px;
+    background-color: lightskyblue;
+    padding: 10px;
+}
+
+#result {
+    display: none;
+    margin-bottom: 25px;
+}
+
+footer {
+    background-color: gray;
+    line-height: 10%;
+    width: 100%;
+    height: 80px;
+    margin-top: 10%;
+}
+
+#footText {
+    padding-bottom: 10%;
+}
+
+@media all and (max-device-width: 480px) {
+    h2 {
+        display: none;
+    }
+
+    body {
+        font-size: 1.9em;
+    }
+    h3 {
+        font-size: 1.6em;
+    }
+    
+    #userQuestion, #submit {
+        font-size: 1.5em;
+        width: auto;
+    }
+
+    .text {
+        margin: 5%;
+    }
+
+    footer {
+        line-height: 10%;
+        font-size: 1.3em;
+        height: auto;
+    }
+
+    #map {
+        width: 90%;
+        height: 400px;
+        font-size: 1.3em;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

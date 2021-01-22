@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+    <title>GRANDPY BOT</title>
+    <meta charset="UTF-8">
+</head>
+
+<body onload="document.getElementById('userQuestion').focus()">
+    <header id="title_index">
+        <h1> Grandpy Bot</h1>
+        <h2 id="secondTitle">Le papy qui vous fait voyager</h2>        
+    </header>
+    <div id="content">
+        <h3>Quel est l'endroit que vous souhaitez voir?</h3>
+        <form>
+            <input type="text" name="question" id="userQuestion" required>
+            <input type="button" value="Dit moi tout ! " id="submit">            
+        </form>
+        <h4 id="adress"></h4>
+        <div id="result">
+            <div id="map"></div>
+            <div id="wikiText">
+                <h3>Saviez vous que :</h3>
+                <p class="text"></p>
+                <a class="linkWiki" href="">Cliquez ici pour en savoir plus</a>                
+            </div>
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='js/grandpy.js')}}" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config['GOOGLE_APP_ID']}}&callback=initMap" async defer></script>
+    
+
+    <footer>
+        <div id="footText">
+            <h4>Application de Yannick Driever</h4>
+            <h4><a href="https://github.com/ElYannu87/OC_P7_GRANDPYBOT">Github</a></h4>
+            <p>P7 DA PYTHON - Openclassrooms</p>
+        </div>
+    </footer>
+</body>
+</html>
