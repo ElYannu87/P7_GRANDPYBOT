@@ -6,7 +6,8 @@ class WikiApi:
         self.url = url
 
     def req_wikimedia(wiki_location):
-        """ Request the API with location, get some page around the location,
+        """ Request the API with location,
+        get some page around the location,
         get a random page in result and return to the HTML page"""
 
         url = "https://fr.wikipedia.org/w/api.php"
@@ -34,6 +35,3 @@ class WikiApi:
         else:
             print("The Wiki request has failed with the html error:" + str(req.status_code))
         return wiki_req
-
-    # if __name__ == "__main__":
-    #    pass

@@ -20,7 +20,9 @@ def index():
 
 @app.route('/question/<sentence>')
 def question(sentence):
-    """Get the user question, parse it and show the address on map"""
+    """Get the user question,
+     send to parser
+     show the address on map"""
     parser_question = Parser(sentence)
     parser_answer = parser_question.get_address(sentence)
 

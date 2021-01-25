@@ -24,7 +24,7 @@ class Parser:
         return parse_list_question
 
     def get_address(self, user_question):
-        """ Parse the user question to extract the adress """
+        """ Parse the user question to extract the address """
         output_address = []
         list_sentence = self.split_user_question(user_question)
         dict_list = set(self.get_stopwords_list())
