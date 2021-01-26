@@ -10,7 +10,8 @@ function initMap() {
         center: { lat: 48.856614, lng: 2.3522219 }
     });
 
-    document.getElementById('submit').addEventListener('click', function () {
+    document.getElementById('submit_form').addEventListener('submit', (e) => {
+        e.preventDefault();
         var userQuestion = document.getElementById('userQuestion').value;
         requestQuestionMap( map, userQuestion);
     });
