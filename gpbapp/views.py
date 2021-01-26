@@ -30,14 +30,15 @@ def question(sentence):
     geo_lat, geo_lng = GoogleApi.geocode_request(parser_answer)
 
     # Get random story & title for Wiki Media API
+    wa = WikiApi()
     wiki_location = str(geo_lat) + "|" + str(geo_lng)
-    wiki_request = WikiApi.req_wikimedia(wiki_location)
+    wiki_request = wa.req_wikimedia(wiki_location)
     len_result = len(wiki_request['query']['geosearch'])
     if len_result >= 1:
         ran_story = random.randrange(len_result)
-        story = WikiApi.req_story(wiki_request, ran_story)
+        story = wa.req_story(wiki_request, ran_story)
     else:
-        story = "Je ne me rapelle de rien concernant ce lieux..."
+        story = "Je ne me rapelle de rien concernant ce lieux... :-("
         title = ""
 
     # Build the Json result to return

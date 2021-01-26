@@ -2,10 +2,8 @@ import requests
 
 
 class WikiApi:
-    def __init__(self, url):
-        self.url = url
 
-    def req_wikimedia(wiki_location):
+    def req_wikimedia(self, wiki_location):
         """ Request the API with location,
         get some page around the location,
         get a random page in result and return to the HTML page"""
@@ -20,7 +18,7 @@ class WikiApi:
             print("The Wiki request has failed with the html error:" + str(req.status_code))
         return wiki_req
 
-    def req_story(wiki_request, ran_story):
+    def req_story(self, wiki_request, ran_story):
         """ Get a random story from the geosearch"""
 
         url = "https://fr.wikipedia.org/w/api.php"
