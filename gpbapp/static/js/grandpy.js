@@ -38,16 +38,16 @@ function requestQuestionMap(userQuestion) {
                 position: (location),
                 });
             // Show the Wiki Media text
-            document.querySelector(".text").innerHTML += readData.story;
             var link = document.querySelector(".linkWiki");
             link.setAttribute('href', 'https://fr.wikipedia.org/wiki/' + readData.title);
             // Affichage dans le HTML
             let reponse = document.createElement('div');
             reponse.innerHTML = "<div class='map'></div>";
-            reponse.innerHTML += "<div id=\"wikiText\">";
+            reponse.innerHTML += "<div id=\"wikiText\"></div>";
             reponse.innerHTML += "<h3>Saviez vous que :</h3>";
             reponse.innerHTML += "<p class='text'>" + readData.story + "</p>";
             reponse.innerHTML += "<a class='linkWiki' href=''>Cliquez ici pour en savoir plus</a></div>";
+
             main.appendChild(reponse)
         }
         result.style.display = "inline";

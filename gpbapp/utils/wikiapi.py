@@ -2,7 +2,6 @@ import requests
 
 
 class WikiApi:
-
     def req_wikimedia(self, wiki_location):
         """ Request the API with location,
         get some page around the location,

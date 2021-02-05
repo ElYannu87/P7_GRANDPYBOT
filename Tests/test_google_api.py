@@ -6,7 +6,7 @@ import config
 
 
 def test_geocode_request():
-    """ Request the Geocode API to get the position for the map """
+
     result = {'results': [{'address_components': [{'long_name': 'Paris',
                 'short_name': 'Paris', 'types': ['locality', 'political']},
                 {'long_name': 'Paris', 'short_name': 'Paris',

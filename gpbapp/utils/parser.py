@@ -17,7 +17,7 @@ class Parser:
         json_output.sort()
         return json_output
 
-    def split_user_question(self, user_question):
+    def split_user_question(self):
         """ Split the user question in a list """
         user_question = self.user_question.lower()
         parse_list_question = re.split(r'\W+', user_question)
@@ -26,7 +26,7 @@ class Parser:
     def get_address(self, user_question):
         """ Parse the user question to extract the address """
         output_address = []
-        list_sentence = self.split_user_question(user_question)
+        list_sentence = self.split_user_question()
         dict_list = set(self.get_stopwords_list())
         output_address = ' '.join(
             [word for word in list_sentence if word not in dict_list]).strip(' ')

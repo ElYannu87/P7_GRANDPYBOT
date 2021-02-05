@@ -3,17 +3,17 @@ import requests
 import requests_mock
 
 
-
 def test_req_wikimedia():
-    """test the req_wikimedia function with mock"""
+    wiki_api = WikiApi()
     with requests_mock.Mocker() as m:
         m.get('https://fr.wikipedia.org/w/api.php?action=query&format=json&uselang=fr&list=geosearch&gscoord=48.957802%7C1.812542', json={'a': 'b'})
-        result = WikiApi.req_wikimedia("48.957802|1.812542")
+        result = wiki_api.req_wikimedia("48.957802|1.812542")
         assert result == {'a': 'b'}
 
 def test_req_story():
-    """test the req_story function with mock: Get the req_wikimedia result
-        and a random page in this result and request the API to get an extract story"""
+
+    wiki_api = WikiApi()
+
     wikiRequest = {'batchcomplete': '', 'query': {'geosearch': [{'pageid': 121171, 'ns': 0,
                     'title': 'Ports de Paris', 'lat': 48.856614, 'lon': 2.3522219, 'dist': 0,
                     'primary': ''}, {'pageid': 7738248, 'ns': 0, 'title': "Deaflympics d'été de 1924",
@@ -48,5 +48,5 @@ def test_req_story():
     with requests_mock.Mocker() as m:
         m.get(
             'https://fr.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&utf8=1&formatversion=latest&exsentences=3&explaintext=1&exsectionformat=wiki&pageids=49947', json=reqStory)
-        result = WikiApi.req_story(wikiRequest, 4)
+        result = wiki_api.req_story(wikiRequest, 4)
         assert result == resultNeed
