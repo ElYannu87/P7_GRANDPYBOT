@@ -1,9 +1,12 @@
 #map, .map {
-    height: 300px;
-    width: 60%;
     margin: auto;
     border-radius: 10px 10px 10px 10px;
     margin-top: 50px;
+}
+
+.visible {
+    height: 300px;
+    width: 60%;
 }
 
 body {

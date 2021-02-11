@@ -18,6 +18,14 @@ function requestQuestionMap(userQuestion) {
     reqQuestion.onreadystatechange = function () {
         if (reqQuestion.readyState == 4 && (reqQuestion.status >= 200 || reqQuestion.status == 0)) {
             var readData = JSON.parse(reqQuestion.responseText);
+            // Affichage dans le HTML
+            let reponse = document.createElement('div');
+            reponse.innerHTML = "<div class='map'></div>";
+            reponse.innerHTML += "<h3>Saviez vous que :</h3>";
+            reponse.innerHTML += "<p class='text'>" + readData.story + "</p>";
+            reponse.innerHTML += "<a class='linkWiki' href='https://fr.wikipedia.org/wiki/'"+readData.title+">Cliquez ici pour en savoir plus</a></div>";
+
+            main.appendChild(reponse)
             // Init map
             let map1 = document.querySelector('.map')
             // Je vais réccupérer toutes les classes map
@@ -25,6 +33,7 @@ function requestQuestionMap(userQuestion) {
             console.log(lesMaps);
             //Je prends la dernière classe map
             let lastMap = lesMaps.item((lesMaps.length)-1);
+            lastMap.classList.add("visible");
             console.log(lastMap);
             let map = new google.maps.Map(lastMap, {
                 zoom: 10,
@@ -37,17 +46,7 @@ function requestQuestionMap(userQuestion) {
                 map: map,
                 position: (location),
                 });
-            // Show the Wiki Media text
-            var link = document.querySelector(".linkWiki");
-            link.setAttribute('href', 'https://fr.wikipedia.org/wiki/' + readData.title);
-            // Affichage dans le HTML
-            let reponse = document.createElement('div');
-            reponse.innerHTML = "<div class='map'></div>";
-            reponse.innerHTML += "<h3>Saviez vous que :</h3>";
-            reponse.innerHTML += "<p class='text'>" + readData.story + "</p>";
-            reponse.innerHTML += "<a class='linkWiki' href=''>Cliquez ici pour en savoir plus</a></div>";
-            
-            main.appendChild(reponse)
+
         }
         result.style.display = "inline";
     };
