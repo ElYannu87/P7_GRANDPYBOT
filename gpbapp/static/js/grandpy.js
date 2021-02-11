@@ -43,11 +43,10 @@ function requestQuestionMap(userQuestion) {
             // Affichage dans le HTML
             let reponse = document.createElement('div');
             reponse.innerHTML = "<div class='map'></div>";
-            reponse.innerHTML += "<div id=\"wikiText\"></div>";
             reponse.innerHTML += "<h3>Saviez vous que :</h3>";
             reponse.innerHTML += "<p class='text'>" + readData.story + "</p>";
             reponse.innerHTML += "<a class='linkWiki' href=''>Cliquez ici pour en savoir plus</a></div>";
-
+            
             main.appendChild(reponse)
         }
         result.style.display = "inline";
