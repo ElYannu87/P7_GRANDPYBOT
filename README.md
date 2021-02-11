@@ -93,5 +93,5 @@ Contient toute la partie de Flask et gère les point entrant et sortant de notre
 Développeur : Yannick Driever
   
 **4.1 Déploiement**  
-L'application est déployé avec Heroku vous pouvez retrouvé l'application à cette adresse /  
+L'application est déployé avec Heroku vous pouvez retrouvé l'application à cette adresse : https://grandpybotprojet7.herokuapp.com/
   
